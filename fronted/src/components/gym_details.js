@@ -8,7 +8,7 @@ import Gym from "./gym";
 const GymList = () => {
     const [loading, setLoading] = useState()
     const [userdata, setUserdata]= useState(null)
-    const [findgym, setFindgym]= useState(null)
+    const [findgym, setFindgym]= useState([])
 
     
     const postGym = async () => {
@@ -30,14 +30,13 @@ const GymList = () => {
             "method": "POST",
             "headers": {
                 "x-rapidapi-host": "fairestdb.p.rapidapi.com",
-                "x-rapidapi-key": "apikey",
                 "content-type": "application/json",
                 "accept": "application/json"
             },
-            "body": JSON.stringify({gymid:userdata.gymid})
-            
+            "body": JSON.stringify({
+                gym_id: userdata.gymid,
+            })
         })
-        
         let result= await response.json()
         setFindgym(result)
         return response
@@ -66,7 +65,8 @@ const GymList = () => {
             {loading? "please wait data is loading": ""}
 
                 {
-                    findgym?.map((rest => {
+                    findgym.data?.map((rest => {
+                        {console.log("rest", rest)}
                         return (
                             <>
                             {/* <div className="" style={{textDecoration: "none", border: "3px solid green"}}> */}
