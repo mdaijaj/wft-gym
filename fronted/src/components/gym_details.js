@@ -25,7 +25,7 @@ const GymList = () => {
         // const response = await fetch(`https://devapi.wtfup.me/gym/plan`, gymInf);
         // const result = await response.json()
 
-
+        console.log("iiiiii", userdata.gymid)
         const response = await fetch("https://devapi.wtfup.me/gym/plan", {
             "method": "POST",
             "headers": {
@@ -34,13 +34,11 @@ const GymList = () => {
                 "content-type": "application/json",
                 "accept": "application/json"
             },
-            "body": JSON.stringify({
-                gym_id: userdata.gym_id,
-            })
+            "body": JSON.stringify({gymid:userdata.gymid})
+            
         })
         
-        let result= response.json()
-        console.log("aijajkhan", result)
+        let result= await response.json()
         setFindgym(result)
         return response
     }
@@ -49,7 +47,6 @@ const GymList = () => {
     const inputHandle= async(event)=>{
         name= event.target.name
         value= event.target.value
-        console.log("aijajvalue", value)
         setUserdata({...userdata, [name]: value})  //[] dynamic data for
     }
 
@@ -57,7 +54,6 @@ const GymList = () => {
     return (
         <>
             <center><h1>Gym list location & Name</h1></center><br />
-            {console.log("userdata", userdata)}
             <div className="container">
                 <div className="col-3" >
                     <label for="gymid" className="col-form-label" >Gym Id:</label>
@@ -71,7 +67,6 @@ const GymList = () => {
 
                 {
                     findgym?.map((rest => {
-                        {console.log("rest", rest)}
                         return (
                             <>
                             {/* <div className="" style={{textDecoration: "none", border: "3px solid green"}}> */}

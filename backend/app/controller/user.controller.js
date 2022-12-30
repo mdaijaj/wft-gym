@@ -149,31 +149,37 @@ exports.alluserlist = async (req, res) => {
 
 //all users list
 exports.filterData = async (req, res) => {
-  console.log("api is caliing....")
   const status = "active"
-  const {email, first_name, mobile_number}= req.query  //role
-
-
-  //optional
-  // email? email: "";
-  // first_name? first_name: "";
-  // mobile_number? mobile_number: "";
-
+  
   try {
-    const userData = await User.findAll({
-      where: {
-        [Op.or]: [
-          { mobile_number: mobile_number},
-          { email: email },
-          { first_name: first_name },
-          { status: status },
+    const userData= await User.findAll({})
 
-        ]
-      }
-    });
-    console.log("userData", userData)
-    if (userData) {
-      res.status(200).send({ message: "All User List", data: userData });
+    const filters = req.query;
+    const filteredUsers = userData.filter(user => {
+    let isValid = true;
+    for (key in filters) {
+      console.log("aijajkhan", user[key], filters[key])
+      isValid = isValid && user[key] == filters[key];
+      console.log("isValid", isValid)
+    }
+    return isValid;
+  });
+
+    // userData.filter((item)=> item==)
+    // const userData = await User.findAll({
+    //   where: {
+    //     email,
+    //     [Op.or]: [
+    //       { mobile_number: mobile_number},
+    //       { first_name: first_name },
+    //       { status: status },
+    //     ]
+    //   }
+    // });
+    
+    console.log("userData", filteredUsers)
+    if (filteredUsers) {
+      res.status(200).send({ message: "All User List", data: filteredUsers });
     }
   } catch (err) {
     console.log(err.message);

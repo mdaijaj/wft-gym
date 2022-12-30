@@ -27,16 +27,20 @@ module.exports = (sequelize, Sequelize) => {
         },
         password: {
             type: Sequelize.STRING,
+            // validate: {
+            //     len: [8,12],    
+            //     // msg: "The mobile length should be 10 characters. onliy", 
+            // }
             validate: {
-                // len: {
-                //     args: [8, 12],
-                //     // msg: "password must be between 8 and 12 characters in length"
-                // },
-            }
+                // validatePassword: function(password) {
+                //     if(!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/.test(password))) {
+                //         throw new Error('The password must contain at least 10 and maximum 12 characters including at least 1 uppercase, 1 lowercase, one number and one special character.');
+                //     }
+                // }
+            },
         },
         mobile_number: {
             type: Sequelize.STRING,
-            allowNull: false,
             validate: {
                 len: [10,10],    
                 // msg: "The mobile length should be 10 characters. onliy", 

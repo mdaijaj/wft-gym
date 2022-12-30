@@ -8,11 +8,11 @@ import Gym from "./gym";
 const GymList = () => {
     const [gymlist, setGymlist] = useState([])
     const [loading, setLoading]= useState(null)
+    const [filterchilddata, setFilterchildata]=useState();
     
     const allgym_list = async () => {
         let baseUrl="https://devapi.wtfup.me"
         const response = await axios.get(`${baseUrl}/gym/nearestgym?lat=30.325488815850512&long=78.0042384802231`);
-        console.log("response4", response)
         setGymlist(response.data.data)
         return response
     }
@@ -24,18 +24,17 @@ const GymList = () => {
     return (
         <>
             <center><h1>Gym list location & Name</h1></center><br />
+            {console.log("filterchilddata", filterchilddata)}
             <Gym/> <br/>
             {/* {gymlist ?  */}
-                <Filter result={gymlist}/> 
+                <Filter result={gymlist} itemfilter={setFilterchildata}/> 
                     {/* : */}
             {/* <div className="container"> */}
             <ul className="row list-ul">
             {loading? "please wait data is loading": ""}
-
-                {console.log("gymlist", gymlist)}
                 {
-                    gymlist?.map((rest => {
-                        {console.log("rest", rest)}
+                    // gymlist?.map((rest => {   //allgym list
+                    gymlist.filter(item=> item.city==filterchilddata)?.map((rest => {
                         return (
                             <>
                             {/* <div className="" style={{textDecoration: "none", border: "3px solid green"}}> */}

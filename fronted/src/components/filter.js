@@ -7,9 +7,9 @@ const Filter = (props) => {
     // const navigate = useNavigate()
     const [userdata, setUserdata] = useState("");
     
-    let [single_city, setFruit] = useState("")
-    let handleFruitChange = (e) => {
-        setFruit(e.target.value)
+    let [single_city, setSingle_city] = useState("")
+    let handleCityChange = (e) => {
+        setSingle_city(e.target.value)
       }
 
     const inputHandle = (e) => {
@@ -27,7 +27,7 @@ const Filter = (props) => {
                 {/* <div className="row"> */}
                     {/* <div className="col-1"></div> */}
                     <div className="col-3">
-                        <div className="main" style={{ textAlign: "left", margin: "auto", padding: "30px 30px", border: "2px solid black", borderRadius: "5px" }}>
+                        <div className="main" style={{ textAlign: "left", margin: "auto", padding: "30px 30px", border: "2px solid black", borderRadius: "5px", backgroundColor: "#1e1e1f", color: "gray"}}>
                         <h2 style={{textAlign: "center"}}>Filters form</h2>
                                 <div className="col-12" >
                                     <label for="user-name" className="col-form-label" >Location:</label>
@@ -41,14 +41,15 @@ const Filter = (props) => {
                                 </div>
                                 <div className="col-12">
                                     <label for="cities" className="col-form-label" onChange={inputHandle}>Cities: </label> <br/>  
-                                        <select onChange={handleFruitChange}>                   
+                                        <select onChange={handleCityChange}>                   
                                             {all_cities.map((item) => <option value={item.value}>{item.label}</option>)}
                                         </select>
                                 </div>
                                 <div className="col-12">
                                     <label for="text" className="col-form-label">Locations:</label>
-                                    {console.log("aijaj", single_city)}
-                                    {props.result.filter(item=> item.city==single_city).map(itemdata =>(
+                                    {props.itemfilter(single_city)}
+                                    {props.result.filter(item=> item.city==single_city).map(itemdata =>
+                                    (
                                          <div className="input">
                                         <ul>
                                         <li>
@@ -58,6 +59,7 @@ const Filter = (props) => {
                                         </ul>
                                         </div>
                                     ))}
+                                    {/* props.itemfilter() */}
                                 </div>
                         </div>
                     </div>
