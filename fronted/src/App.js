@@ -1,6 +1,6 @@
 import './App.css';
 import react, {useEffect, useState} from 'react';
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useParams} from 'react-router-dom'
 import Home from "./components/home"
 import Register from './components/form'
 import Navbar from './components/navbar';
@@ -10,6 +10,8 @@ import Filter from './components/filter';
 import GymDetails from './components/gym_details';
 
 const Routing=()=>{
+  let { id } = useParams()
+  console.log("iiiiiiiiii", id)
   return(
     <>
       <Routes>
@@ -17,7 +19,7 @@ const Routing=()=>{
         <Route path="/register" element={<Register/>} />
         <Route path="/gym" element={<Gym/>} />
         <Route path="/gymlist" element={<Gymlist/>} />
-        <Route path="/gymdetails/:id" element={<GymDetails/>} />
+        <Route path="/gymdetails/:id" element={<GymDetails gymId={id} />} />
       </Routes>
     </>
   )

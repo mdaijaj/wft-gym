@@ -18,6 +18,9 @@ const Home = () => {
         </div>
         {/* <button className="btn btn-info" > View </button> */}
       </div>
+      <div>
+      <img src="https://i.imgur.com/EZkA5Fc.png" width="90%"></img>
+      </div>
     </>
   );
 };

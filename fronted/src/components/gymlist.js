@@ -23,8 +23,12 @@ const GymList = () => {
 
     return (
         <>
+            {/* {console.log("filterchilddata", filterchilddata)} */}
+            <div style={{padding: "30px"}}>
+                <img src="https://i.imgur.com/EZkA5Fc.png" width="100%"></img>
+            </div>
             <center><h1>Gym list location & Name</h1></center><br />
-            {console.log("filterchilddata", filterchilddata)}
+            {/* {console.log("filterchilddata", filterchilddata)} */}
             <Gym/> <br/>
             {/* {gymlist ?  */}
                 <Filter result={gymlist} itemfilter={setFilterchildata}/> 
