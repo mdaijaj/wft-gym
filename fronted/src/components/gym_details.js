@@ -24,7 +24,6 @@ const Gymdetails = (props) => {
 
      
     const postGym = async () => {
-        console.log("proppppppppppppppp", userdata.gymid)
         const response = await fetch("https://devapi.wtfup.me/gym/plan", {
             "method": "POST",
             "headers": {
@@ -82,13 +81,30 @@ const Gymdetails = (props) => {
                     <h1>Facilities</h1>
                 </div>
 
-                <div className="description">
+                {/* <div className="description">
                     <h1>Why we choose WFT?</h1>
-                    <div classna>Earn WFT Rewards Coin</div>
+                    <div className="">Earn WFT Rewards Coin</div>
                     <div>Fully Vaccinated Staff</div>
                     <div>Track Fitness Journey</div>
                     <div>Pocket Friendly Membership</div>
+                </div> */}
 
+                <div className="desc">
+                    <h1>Why we choose WFT?</h1>
+                    <div class="row">
+                        <div class="col-3" style={{height: "250px", width: "150px"}}>
+                            <div class="card">Earn WFT Rewards Coin</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">Fully Vaccinated Staff</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">Track Fitness Journey</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">Pocket Friendly Membership</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="description">
@@ -118,10 +134,10 @@ const Gymdetails = (props) => {
                         return (
                             <>
                             {/* <div className="" style={{textDecoration: "none", border: "3px solid green"}}> */}
-                            <div className="col-8 li-list">
+                            <div className="li-list" style={{width: "100%"}}>
                                 <div className="row" style={{backgroundColor: "#1e1e1f"}} >
-                                    <div className="col-6 d-flex justify-content-right">
-                                        <div className="card" style={{ width: "50rem", backgroundColor: "#1e1e1f" }}>
+                                    <div className="col-6">
+                                        <div className="card" style={{ backgroundColor: "#1e1e1f" }}>
                                             <img className="card-img-top" src={rest.images} />
                                         </div>
                                     </div>

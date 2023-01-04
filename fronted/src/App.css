@@ -70,12 +70,42 @@
   font-size: 20px;
 }
 
-.description div{
+/* .desc div div{
   background-color: red;
   height: 150px;
   width: 150px;
-  flex: auto;
-  text-align: center;
-  justify-content: center;
+  /* flex: auto; */
+  /* text-align: center;
+  justify-content: center; */
+/* } */ */
+
+.footer{
+  width: 100%;
+  height: 400px;
+  background-color: black;
+}
+
+.row{
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.col-3{
+  padding-top: 40px;
+}
+.li-list{
+  width: 100%;
+}
+
+.p2{
+  padding: 30px;
+  font-size: 18px;
+  color: #7f7f84;
+}
+
+.card{
+  color: black;
 }
 

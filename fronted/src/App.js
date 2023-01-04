@@ -6,8 +6,8 @@ import Register from './components/form'
 import Navbar from './components/navbar';
 import Gym from './components/gym'
 import Gymlist from './components/gymlist'
-import Filter from './components/filter';
 import GymDetails from './components/gym_details';
+import Footer from './components/footer';
 
 const Routing=()=>{
   let { id } = useParams()
@@ -40,8 +40,7 @@ const App=()=> {
     <div className="App">
       <Navbar/>
       <Routing/>
-      {/* <Gym/> */}
-      {/* <Filter/> */}
+      <Footer/>
     </div>
     </>
   );

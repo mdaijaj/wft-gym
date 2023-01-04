@@ -1,5 +1,6 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import "../index.css";
+import Footer from "./footer";
 
 const Gym = () => {
   const navigate = useNavigate();
@@ -18,5 +19,7 @@ const Gym = () => {
     </>
   );
 };
+
+
 
 export default Gym;

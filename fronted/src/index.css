@@ -17,9 +17,8 @@ code {
 }
 
 .row{
-  justify-content: center;
-  /* margin-top: 30px; */
-  margin: 35px 0px ;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .main{
@@ -28,4 +27,12 @@ code {
 
 .col-6 input{
   background-color: lightgrey;
+}
+
+
+.fakeimg{
+  width: auto;
+  padding: 10px;
+  color: white;
+  background-color: rgb(56, 54, 54);
 }
